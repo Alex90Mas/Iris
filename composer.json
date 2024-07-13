@@ -46,6 +46,16 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "start": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php -r \"touch('database/database.sqlite');\"",
+            "@composer install -o --no-scripts",
+            "@php artisan key:generate --ansi",
+            "@composer dump-autoload",
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "npm install",
+            "npm run dev"
         ]
     },
     "extra": {
