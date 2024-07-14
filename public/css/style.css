@@ -170,3 +170,13 @@ header {
     background-color: #d5e0ac;
     padding: 20px 0 20px 0;
 }
+
+/*******login*****/
+.invalid {
+    border-color: red;
+    filter: drop-shadow(2px 3px 4px red);
+}
+
+.error-message {
+    color: red;
+}
