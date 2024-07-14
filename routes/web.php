@@ -21,3 +21,7 @@ Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLog
      ->name('auth.showLogin');
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'doLogin'])
      ->name('auth.doLogin');
+Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegisterForm'])
+     ->name('auth.showRegister');
+Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'doRegister'])
+     ->name('auth.doRegister');
