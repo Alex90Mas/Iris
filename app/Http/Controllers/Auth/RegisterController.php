@@ -18,9 +18,9 @@ class RegisterController extends Controller
         $data = $request->validate([
             'firstname' => 'required|string',
             'lastname' => 'required|string',
-            'email' => 'required|string|email',
+            'email' => 'required|string|email|unique:users',
             'password' => 'required|string|confirmed',
-            'phone' => 'required|regex:/^0[1-79][0-9]{8}$/',
+            'phone' => 'required|regex:/^0[1-79][0-9]{8}$/|unique:users',
         ]);
 
        //todo: démerde toi pour le reste Nanou d'amour
