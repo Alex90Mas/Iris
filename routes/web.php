@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])
+     ->name('auth.showLogin');
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'doLogin'])
+     ->name('auth.doLogin');
