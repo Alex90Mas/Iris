@@ -25,3 +25,6 @@ Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 's
      ->name('auth.showRegister');
 Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'doRegister'])
      ->name('auth.doRegister');
+Route::view('/register/verify', 'auth.verify-email')
+     ->middleware('auth')
+     ->name('verification.notice');

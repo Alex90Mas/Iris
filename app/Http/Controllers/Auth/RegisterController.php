@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -23,6 +24,9 @@ class RegisterController extends Controller
             'phone' => 'required|regex:/^0[1-79][0-9]{8}$/|unique:users',
         ]);
 
-       //todo: démerde toi pour le reste Nanou d'amour
+        $user = User::create($data);
+        event(new Registered($user));
+
+        return view('auth.verify-email');
     }
 }
